@@ -8,5 +8,7 @@ namespace Task4
 {
     interface IInputOutput
     {
+        void Input();
+        void Output();
     }
 }

@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Task4
 {
-    interface IFunction: ICloneable, IComparable
+    interface IFunction: ICloneable, IComparable, IInputOutput
     {
         double FindFunctionValue(double x);
 
-        double FindDerivativeValue(double derivativeOrder, double x);
+        double FindDerivativeValue(uint derivativeOrder, double x);
     }
 }

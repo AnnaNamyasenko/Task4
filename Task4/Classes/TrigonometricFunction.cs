@@ -12,22 +12,22 @@ namespace Task4
     {
         private double a;
         private double b;
-        private const uint INITIALCOEFFICIENTVALUE = 1;
+        private const uint INITIALVALUE = 1;
 
 
         public TrigonometricFuncName TrigonometricFuncName { get; set; }
 
         public TrigonometricFunction()
         {
-            a = INITIALCOEFFICIENTVALUE;
-            b = INITIALCOEFFICIENTVALUE;
+            a = INITIALVALUE;
+            b = INITIALVALUE;
             TrigonometricFuncName = TrigonometricFuncName.Cos;
         }
 
         public TrigonometricFunction(double _a)
         {
             a = _a;
-            b = INITIALCOEFFICIENTVALUE;
+            b = INITIALVALUE;
             TrigonometricFuncName = TrigonometricFuncName.Cos;
         }
 
@@ -68,8 +68,11 @@ namespace Task4
             }
             return functionResult;
         }
-        
-        public double FindDerivativeValue(double derivativeOrder, double x)
+
+        //TODO
+        //Change FindDerivativeValue method
+
+        public double FindDerivativeValue(uint derivativeOrder, double x)
         {
             double result = 0;
             switch (TrigonometricFuncName)
@@ -105,7 +108,9 @@ namespace Task4
                 return this.TrigonometricFuncName.CompareTo(otherFunction.TrigonometricFuncName);
             }
             else
+            {
                 throw new ArgumentException("Object is not a Trigonometric function");
+            }
         }
 
         public Object Clone()
@@ -114,11 +119,19 @@ namespace Task4
             return clone;
         }
 
-        //public override string ToString()
+        public void Input()
+        {
+            Console.WriteLine("Enter trigonometric function type: ");
+            this.TrigonometricFuncName = (TrigonometricFuncName)Enum.Parse(typeof(TrigonometricFuncName), Console.ReadLine());
+            Console.WriteLine("Enter first coefficient: ");
+            this.a = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Enter second coefficient: ");
+            this.b = Convert.ToDouble(Console.ReadLine());
+        }
 
-        //public override bool Equals(Object obj)
-
-        //public static bool operator ==(TrigonometricFunction firstFunction, TrigonometricFunction secondFunction)
-        //public static bool operator !=(TrigonometricFunction firstFunction, TrigonometricFunction secondFunction)
+        public void Output()
+        {
+            Console.WriteLine("Function type - {0}; function coefficients - {2};{3)", this.TrigonometricFuncName, this.a,  this.b);
+        }
     }
 }
