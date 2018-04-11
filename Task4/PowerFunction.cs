@@ -83,7 +83,7 @@ namespace Task4
 
         public void Output()
         {
-            Console.WriteLine("Function coefficient - {0}; function power - {2};", this.a, this.n);
+            Console.WriteLine($"{this.a}*x^{this.n}".ToLower());
         }
     }
 }

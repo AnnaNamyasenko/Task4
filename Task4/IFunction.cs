@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Task4
 {
-    interface IFunction: ICloneable, IComparable, IInputOutput
+    public interface IFunction: ICloneable, IComparable, IInputOutput
     {
         double FindFunctionValue(double x);
 

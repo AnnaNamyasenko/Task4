@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Task4
 {
-    public enum TrigonometricFuncName { Cos, Sin, Tg, Ctg};
+    public enum TrigonometricFuncName { cos, sin, tg, ctg};
 
     public class TrigonometricFunction: IFunction
     {
@@ -21,21 +21,21 @@ namespace Task4
         {
             a = INITIALVALUE;
             b = INITIALVALUE;
-            TrigonometricFuncName = TrigonometricFuncName.Cos;
+            TrigonometricFuncName = TrigonometricFuncName.cos;
         }
 
         public TrigonometricFunction(double _a)
         {
             a = _a;
             b = INITIALVALUE;
-            TrigonometricFuncName = TrigonometricFuncName.Cos;
+            TrigonometricFuncName = TrigonometricFuncName.cos;
         }
 
         public TrigonometricFunction(double _a, double _b)
         {
             a = _a;
             b = _b;
-            TrigonometricFuncName = TrigonometricFuncName.Cos;
+            TrigonometricFuncName = TrigonometricFuncName.cos;
         }
 
         public TrigonometricFunction(double _a, double _b, TrigonometricFuncName name)
@@ -50,16 +50,16 @@ namespace Task4
             double functionResult = 0;
             switch(TrigonometricFuncName)
             {
-                case TrigonometricFuncName.Cos:
+                case TrigonometricFuncName.cos:
                     functionResult = a * Math.Cos(b * x);
                     break;
-                case TrigonometricFuncName.Sin:
+                case TrigonometricFuncName.sin:
                     functionResult = a * Math.Sin(b * x);
                     break;
-                case TrigonometricFuncName.Tg:
+                case TrigonometricFuncName.tg:
                     functionResult = a * Math.Tan(b * x);
                     break;
-                case TrigonometricFuncName.Ctg:
+                case TrigonometricFuncName.ctg:
                     functionResult = a / Math.Tan(b * x);
                     break;
                 default:
@@ -77,10 +77,10 @@ namespace Task4
             double result = 0;
             switch (TrigonometricFuncName)
             {
-                case TrigonometricFuncName.Cos:
+                case TrigonometricFuncName.cos:
                     result = Math.Cos(x +(Math.PI/2)*derivativeOrder);
                     break;
-                case TrigonometricFuncName.Sin:
+                case TrigonometricFuncName.sin:
                     result = Math.Sin(x + (Math.PI / 2) * derivativeOrder);
                     break;
                 /*case TrigonometricFuncName.Tg:
@@ -131,7 +131,7 @@ namespace Task4
 
         public void Output()
         {
-            Console.WriteLine("Function type - {0}; function coefficients - {2};{3)", this.TrigonometricFuncName, this.a,  this.b);
+            Console.WriteLine($"{this.a}*{TrigonometricFuncName}({this.b}*x)".ToLower());
         }
     }
 }

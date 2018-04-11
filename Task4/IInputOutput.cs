@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Task4
 {
-    interface IInputOutput
+    public interface IInputOutput
     {
         void Input();
         void Output();
