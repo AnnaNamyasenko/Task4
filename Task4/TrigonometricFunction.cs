@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Task4
 {
-    public enum TrigonometricFuncName { cos, sin, tg, ctg};
+    public enum TrigonometricFuncNames { cos, sin, tg, ctg};
 
     public class TrigonometricFunction: IFunction
     {
@@ -15,34 +15,29 @@ namespace Task4
         private const uint INITIALVALUE = 1;
 
 
-        public TrigonometricFuncName TrigonometricFuncName { get; set; }
+        public TrigonometricFuncNames TrigonometricFuncName { get; set; }
 
-        public TrigonometricFunction()
+        public TrigonometricFunction(): this(a: INITIALVALUE, b: INITIALVALUE, TrigonometricFuncName: TrigonometricFuncNames.cos){}
+
+        public TrigonometricFunction(double a)
         {
-            a = INITIALVALUE;
+            this.a = a;
             b = INITIALVALUE;
-            TrigonometricFuncName = TrigonometricFuncName.cos;
+            TrigonometricFuncName = TrigonometricFuncNames.cos;
         }
 
-        public TrigonometricFunction(double _a)
+        public TrigonometricFunction(double a, double b)
         {
-            a = _a;
-            b = INITIALVALUE;
-            TrigonometricFuncName = TrigonometricFuncName.cos;
+            this.a = a;
+            this.b = b;
+            TrigonometricFuncName = TrigonometricFuncNames.cos;
         }
 
-        public TrigonometricFunction(double _a, double _b)
+        public TrigonometricFunction(double a, double b, TrigonometricFuncNames TrigonometricFuncName)
         {
-            a = _a;
-            b = _b;
-            TrigonometricFuncName = TrigonometricFuncName.cos;
-        }
-
-        public TrigonometricFunction(double _a, double _b, TrigonometricFuncName name)
-        {
-            a = _a;
-            b = _b;
-            TrigonometricFuncName = name;
+            this.a = a;
+            this.b = b;
+            this.TrigonometricFuncName = TrigonometricFuncName;
         }
 
         public double FindFunctionValue(double x)
@@ -50,16 +45,16 @@ namespace Task4
             double functionResult = 0;
             switch(TrigonometricFuncName)
             {
-                case TrigonometricFuncName.cos:
+                case TrigonometricFuncNames.cos:
                     functionResult = a * Math.Cos(b * x);
                     break;
-                case TrigonometricFuncName.sin:
+                case TrigonometricFuncNames.sin:
                     functionResult = a * Math.Sin(b * x);
                     break;
-                case TrigonometricFuncName.tg:
+                case TrigonometricFuncNames.tg:
                     functionResult = a * Math.Tan(b * x);
                     break;
-                case TrigonometricFuncName.ctg:
+                case TrigonometricFuncNames.ctg:
                     functionResult = a / Math.Tan(b * x);
                     break;
                 default:
@@ -69,26 +64,24 @@ namespace Task4
             return functionResult;
         }
 
-        //TODO
-        //Change FindDerivativeValue method
 
         public double FindDerivativeValue(uint derivativeOrder, double x)
         {
             double result = 0;
             switch (TrigonometricFuncName)
             {
-                case TrigonometricFuncName.cos:
+                case TrigonometricFuncNames.cos:
                     result = Math.Cos(x +(Math.PI/2)*derivativeOrder);
                     break;
-                case TrigonometricFuncName.sin:
+                case TrigonometricFuncNames.sin:
                     result = Math.Sin(x + (Math.PI / 2) * derivativeOrder);
                     break;
-                /*case TrigonometricFuncName.Tg:
-                    result = ;
+                case TrigonometricFuncNames.tg:
+                    result = 1/Math.Pow(Math.Cos(x), 2);
                     break;
-                case TrigonometricFuncName.Ctg:
-                    result = ;
-                    break;*/
+                case TrigonometricFuncNames.ctg:
+                    result = 1/ Math.Pow(Math.Sin(x), 2);
+                    break;
                 default:
                     throw new ArgumentException("Incorrect function type");
 
@@ -122,7 +115,7 @@ namespace Task4
         public void Input()
         {
             Console.WriteLine("Enter trigonometric function type: ");
-            this.TrigonometricFuncName = (TrigonometricFuncName)Enum.Parse(typeof(TrigonometricFuncName), Console.ReadLine());
+            this.TrigonometricFuncName = (TrigonometricFuncNames)Enum.Parse(typeof(TrigonometricFuncNames), Console.ReadLine());
             Console.WriteLine("Enter first coefficient: ");
             this.a = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("Enter second coefficient: ");
