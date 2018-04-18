@@ -63,5 +63,76 @@ namespace UnitTestProject
             //Assert
             Assert.AreEqual(actual, result);
         }
+
+        [TestMethod]
+        public void PowerFunctionCloneTest()
+        {
+            PowerFunction function = new PowerFunction(12,2);
+            PowerFunction cloneFunction = function.Clone() as PowerFunction;
+
+            Assert.IsTrue(function == cloneFunction);
+        }
+
+        //******************** TrigonometricFunctions********************
+        [TestMethod]
+        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.CSV",
+                  "|DataDirectory|\\TFdata1.csv",
+                  "TFdata1#csv",
+                   DataAccessMethod.Sequential),
+                   DeploymentItem("TFdata1.csv")
+         ]
+        public void TrigonometricFunctionFindValueTest()
+        {
+            //Arrange
+            double a = double.Parse(TestContext.DataRow["a"].ToString());
+            double b = double.Parse(TestContext.DataRow["b"].ToString());
+            double x = double.Parse(TestContext.DataRow["x"].ToString());
+            TrigonometricFuncName funcName = (TrigonometricFuncName)Enum.Parse(typeof(TrigonometricFuncName),TestContext.DataRow["name"].ToString());
+
+            TrigonometricFunction function = new TrigonometricFunction(a, b, funcName);
+
+            //Act
+            double actual = function.FindFunctionValue(x);
+            double result = double.Parse(TestContext.DataRow["result"].ToString());
+
+            //Assert
+            Assert.AreEqual(actual, result);
+        }
+        [TestMethod]
+        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.CSV",
+                  "|DataDirectory|\\TFdata2.csv",
+                  "TFdata2#csv",
+                   DataAccessMethod.Sequential),
+                   DeploymentItem("TFdata2.csv")
+         ]
+        public void TrigonometricFunctionFindDerivativeValueTest()
+        {
+            //Arrange
+            double a = double.Parse(TestContext.DataRow["a"].ToString());
+            double b = double.Parse(TestContext.DataRow["b"].ToString());
+            double x = double.Parse(TestContext.DataRow["x"].ToString());
+            uint derivativeOrder = uint.Parse(TestContext.DataRow["derivativeOrder"].ToString());
+
+            TrigonometricFuncName funcName = (TrigonometricFuncName)Enum.Parse(typeof(TrigonometricFuncName), TestContext.DataRow["name"].ToString());
+
+            TrigonometricFunction function = new TrigonometricFunction(a, b, funcName);
+
+            //Act
+            double actual = a*b*function.FindDerivativeValue(derivativeOrder,x);
+            double result = double.Parse(TestContext.DataRow["result"].ToString());
+
+            //Assert
+            Assert.AreEqual(actual, result);
+        }
+        [TestMethod]
+        public void TrigonometricFunctionCloneTest()
+        {
+            TrigonometricFuncName funcName = (TrigonometricFuncName)Enum.Parse(typeof(TrigonometricFuncName), "cos");
+            TrigonometricFunction function = new TrigonometricFunction(12, 2, funcName);
+            TrigonometricFunction cloneFunction = function.Clone() as TrigonometricFunction;
+
+            Assert.IsTrue(function == cloneFunction);
+        }
     }
 }
+//
