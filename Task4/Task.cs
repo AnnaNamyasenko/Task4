@@ -44,7 +44,7 @@ namespace Task4
                 item.Output();
             }
         }
-        private static double FindFunctionValue(double x, IFunction[] functions)
+        public static double FindFunctionValue(double x, IFunction[] functions)
         {
             double result = 0;
             foreach (var function in functions)
@@ -54,7 +54,7 @@ namespace Task4
             return result;
         }
 
-        private static double FindDerivativeValue(uint derivativeOrder, double x, IFunction[] functions)
+        public static double FindDerivativeValue(uint derivativeOrder, double x, IFunction[] functions)
         {
             double result = 0;
             foreach (var function in functions)
