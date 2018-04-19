@@ -83,6 +83,12 @@ namespace Task4
                 case TrigonometricFuncName.sin:
                     result = Math.Sin(x + (Math.PI / 2) * derivativeOrder);
                     break;
+                /*case TrigonometricFuncName.Tg:
+                    result = ;
+                    break;
+                case TrigonometricFuncName.Ctg:
+                    result = ;
+                    break;*/
                 default:
                     throw new ArgumentException("Incorrect function type");
 
@@ -126,15 +132,6 @@ namespace Task4
         public void Output()
         {
             Console.WriteLine($"{this.a}*{TrigonometricFuncName}({this.b}*x)".ToLower());
-        }
-
-        public static bool operator ==(TrigonometricFunction f1, TrigonometricFunction f2)
-        {
-            return (f1.a == f2.a) && (f1.b == f2.b) && (f1.TrigonometricFuncName == f2.TrigonometricFuncName);
-        }
-        public static bool operator !=(TrigonometricFunction f1, TrigonometricFunction f2)
-        {
-            return (f1.a != f2.a) || (f1.b != f2.b) || (f1.TrigonometricFuncName != f2.TrigonometricFuncName);
         }
     }
 }

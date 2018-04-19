@@ -67,43 +67,10 @@ namespace UnitTestProject
         [TestMethod]
         public void PowerFunctionCloneTest()
         {
-            PowerFunction function = new PowerFunction(12, 2);
+            PowerFunction function = new PowerFunction(12,2);
             PowerFunction cloneFunction = function.Clone() as PowerFunction;
 
             Assert.IsTrue(function == cloneFunction);
-        }
-
-        [TestMethod]
-        public void PowerFunctionOperatorEqualTest()
-        {
-            PowerFunction function1 = new PowerFunction(2);
-            PowerFunction function2 = new PowerFunction(2);
-
-            bool result = (function1 == function2);
-
-            Assert.IsTrue(result);
-        }
-        
-        [TestMethod]
-        public void PowerFunctionOperatorNotEqualTest()
-        {
-            PowerFunction function1 = new PowerFunction(2,1);
-            PowerFunction function2 = new PowerFunction(6,21);
-
-            bool result = (function1 != function2);
-
-            Assert.IsTrue(result);
-        }
-
-        [TestMethod]
-        public void PowerFunctionCompareToTest()
-        {
-            PowerFunction function1 = new PowerFunction(12, 2);
-            PowerFunction function2 = new PowerFunction(12, 7);
-
-            int actual = function1.FindFunctionValue(1).CompareTo(function2.FindFunctionValue(1));
-
-            Assert.AreEqual(actual,0);
         }
 
         //******************** TrigonometricFunctions********************
@@ -120,7 +87,7 @@ namespace UnitTestProject
             double a = double.Parse(TestContext.DataRow["a"].ToString());
             double b = double.Parse(TestContext.DataRow["b"].ToString());
             double x = double.Parse(TestContext.DataRow["x"].ToString());
-            TrigonometricFuncName funcName = (TrigonometricFuncName)Enum.Parse(typeof(TrigonometricFuncName), TestContext.DataRow["name"].ToString());
+            TrigonometricFuncName funcName = (TrigonometricFuncName)Enum.Parse(typeof(TrigonometricFuncName),TestContext.DataRow["name"].ToString());
 
             TrigonometricFunction function = new TrigonometricFunction(a, b, funcName);
 
@@ -151,7 +118,7 @@ namespace UnitTestProject
             TrigonometricFunction function = new TrigonometricFunction(a, b, funcName);
 
             //Act
-            double actual = a * b * function.FindDerivativeValue(derivativeOrder, x);
+            double actual = a*b*function.FindDerivativeValue(derivativeOrder,x);
             double result = double.Parse(TestContext.DataRow["result"].ToString());
 
             //Assert
@@ -166,44 +133,6 @@ namespace UnitTestProject
 
             Assert.IsTrue(function == cloneFunction);
         }
-        [TestMethod]
-        public void TrigonometricFunctionOperatorEqualTest()
-        {
-            TrigonometricFuncName funcName1 = (TrigonometricFuncName)Enum.Parse(typeof(TrigonometricFuncName), "cos");
-            TrigonometricFunction function1 = new TrigonometricFunction(12, 2, funcName1);
-            TrigonometricFuncName funcName2 = (TrigonometricFuncName)Enum.Parse(typeof(TrigonometricFuncName), "cos");
-            TrigonometricFunction function2 = new TrigonometricFunction(12, 2, funcName2);
-
-            bool result = (function1 == function2);
-
-            Assert.IsTrue(result);
-        }
-        [TestMethod]
-        public void TrigonometricFunctionOperatorNotEqualTest()
-        {
-            TrigonometricFuncName funcName1 = (TrigonometricFuncName)Enum.Parse(typeof(TrigonometricFuncName), "cos");
-            TrigonometricFunction function1 = new TrigonometricFunction(12, 2, funcName1);
-            TrigonometricFuncName funcName2 = (TrigonometricFuncName)Enum.Parse(typeof(TrigonometricFuncName), "cos");
-            TrigonometricFunction function2 = new TrigonometricFunction(2, 12, funcName2);
-
-            bool result = (function1 == function2);
-
-            Assert.IsFalse(result);
-        }
-        [TestMethod]
-        public void TrigonometricFunctionCompareToTest()
-        {
-            TrigonometricFuncName funcName1 = (TrigonometricFuncName)Enum.Parse(typeof(TrigonometricFuncName), "cos");
-            TrigonometricFunction function1 = new TrigonometricFunction(12, 2, funcName1);
-            TrigonometricFuncName funcName2 = (TrigonometricFuncName)Enum.Parse(typeof(TrigonometricFuncName), "cos");
-            TrigonometricFunction function2 = new TrigonometricFunction(2, 12, funcName2);
-
-            int actual = function1.FindFunctionValue(1).CompareTo(function2.FindFunctionValue(1));
-
-            Assert.AreEqual(actual, -1);
-        }
-
-        
     }
 }
 //
