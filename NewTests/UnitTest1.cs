@@ -27,7 +27,7 @@ namespace UnitTestProject
             double a = double.Parse(TestContext.DataRow["a"].ToString());
             double x = double.Parse(TestContext.DataRow["x"].ToString());
             uint n = uint.Parse(TestContext.DataRow["n"].ToString());
-
+            //
             PowerFunction function = new PowerFunction(a, n);
 
             //Act
