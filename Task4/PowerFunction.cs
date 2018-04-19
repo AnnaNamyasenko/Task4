@@ -19,19 +19,24 @@ namespace Task4
             this.a = a;
             this.n = INITIALVALUE;
         }
+<<<<<<< HEAD
 
         public PowerFunction(double a, uint n)
+=======
+       
+        public PowerFunction(double _a, uint _n)
+>>>>>>> 9b8ced08ae7d91eb2fabac32dcd4b857423390a9
         {
             this.a = a;
             this.n = n;
         }
-
+        //tested
         public double FindFunctionValue(double x)
         {
             double functionResult = a * Math.Pow(x, n);
             return functionResult;
         }
-
+        //tested
         public double FindDerivativeValue(uint derivativeOrder, double x)
         {
             double result = 1;
@@ -45,7 +50,7 @@ namespace Task4
             result *= (a * Math.Pow(x, n));
             return result;
         }
-
+        //tested
         public int CompareTo(Object obj)
         {
             if (obj == null)
@@ -63,6 +68,7 @@ namespace Task4
             }
         }
 
+        //tested
         public Object Clone()
         {
             PowerFunction clone = new PowerFunction(this.a, this.n);
@@ -80,6 +86,16 @@ namespace Task4
         public void Output()
         {
             Console.WriteLine($"{this.a}*x^{this.n}".ToLower());
+        }
+        //tested
+        public static bool operator ==(PowerFunction f1, PowerFunction f2)
+        {
+            return (f1.a == f2.a) && (f1.n == f2.n);
+        }
+        //tested
+        public static bool operator !=(PowerFunction f1, PowerFunction f2)
+        {
+            return (f1.a != f2.a) || (f1.n != f2.n);
         }
     }
 }
