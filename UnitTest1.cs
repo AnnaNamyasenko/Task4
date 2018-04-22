@@ -35,7 +35,7 @@ namespace UnitTestTask4
             double actual = function.FindFunctionValue(x);
             double result = double.Parse(TestContext.DataRow["result"].ToString());
 
-            //Assert
+            //Assert test
             Assert.AreEqual(actual, result);
 
         }
