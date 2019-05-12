@@ -12,22 +12,23 @@ namespace Task4
         private uint n;
         private const uint INITIALVALUE = 1;
 
-        public PowerFunction()
-        {
-            a = INITIALVALUE;
-            n = INITIALVALUE;
-        }
+        public PowerFunction(): this(a: INITIALVALUE, n: INITIALVALUE){ }
 
-        public PowerFunction(double _a)
+        public PowerFunction(double a)
         {
-            a = _a;
-            n = INITIALVALUE;
+            this.a = a;
+            this.n = INITIALVALUE;
         }
+<<<<<<< HEAD
+
+        public PowerFunction(double a, uint n)
+=======
        
         public PowerFunction(double _a, uint _n)
+>>>>>>> 9b8ced08ae7d91eb2fabac32dcd4b857423390a9
         {
-            a = _a;
-            n = _n;
+            this.a = a;
+            this.n = n;
         }
         //tested
         public double FindFunctionValue(double x)

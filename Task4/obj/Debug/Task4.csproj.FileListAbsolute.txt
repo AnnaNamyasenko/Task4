@@ -5,10 +5,3 @@ C:\Users\Anna\Documents\Visual Studio 2017\Projects\Task4\Task4\obj\Debug\Task4.
 C:\Users\Anna\Documents\Visual Studio 2017\Projects\Task4\Task4\obj\Debug\Task4.csproj.CoreCompileInputs.cache
 C:\Users\Anna\Documents\Visual Studio 2017\Projects\Task4\Task4\obj\Debug\Task4.exe
 C:\Users\Anna\Documents\Visual Studio 2017\Projects\Task4\Task4\obj\Debug\Task4.pdb
-D:\Personals\Danusja\programming\c#\Task4\Task4\bin\Debug\Task4.exe.config
-D:\Personals\Danusja\programming\c#\Task4\Task4\bin\Debug\Task4.exe
-D:\Personals\Danusja\programming\c#\Task4\Task4\bin\Debug\Task4.pdb
-D:\Personals\Danusja\programming\c#\Task4\Task4\obj\Debug\Task4.csprojResolveAssemblyReference.cache
-D:\Personals\Danusja\programming\c#\Task4\Task4\obj\Debug\Task4.csproj.CoreCompileInputs.cache
-D:\Personals\Danusja\programming\c#\Task4\Task4\obj\Debug\Task4.exe
-D:\Personals\Danusja\programming\c#\Task4\Task4\obj\Debug\Task4.pdb
